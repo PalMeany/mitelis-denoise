@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "Mitelis Noise Killer",
+  "version": "1.0.0",
+  "description": "Скрывает шумовой оверлей на workspace.mitelis.net. Клик по иконке — включить/выключить.",
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "matches": ["*://workspace.mitelis.net/*"],
+      "run_at": "document_start",
+      "all_frames": false,
+      "css": ["hide.css"],
+      "js": ["content.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "scripts": ["background.js"]
+  },
+  "action": {
+    "default_title": "Mitelis Noise Killer",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "mitelis-noise-killer@nuv.su",
+      "strict_min_version": "115.0"
+    }
+  }
+}
